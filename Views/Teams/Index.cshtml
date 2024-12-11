@@ -1,0 +1,16 @@
+﻿@model IEnumerable<CombatGameWebApp.Models.Team>
+
+@{
+    ViewData["Title"] = "Teams";
+}
+
+<h2>Your Teams</h2>
+
+<ul>
+    @foreach (var team in Model)
+    {
+        <li>@team.TeamName</li>
+    }
+</ul>
+
+<a href="/Teams/Create">Create New Team</a>

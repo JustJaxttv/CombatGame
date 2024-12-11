@@ -1,0 +1,17 @@
+﻿@model CombatGameWebApp.Models.Team
+
+@{
+    ViewData["Title"] = "Create Team";
+}
+
+<h2>Create a New Team</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="TeamName"></label>
+        <input asp-for="TeamName" required />
+        <span asp-validation-for="TeamName"></span>
+    </div>
+
+    <button type="submit">Create Team</button>
+</form>
