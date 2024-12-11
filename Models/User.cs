@@ -1,4 +1,4 @@
-﻿namespace CombatGameWebApp.Models
+﻿namespace CombatGame.Models
 {
     public class User
     {

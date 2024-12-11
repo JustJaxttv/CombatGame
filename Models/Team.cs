@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace CombatGameWebApp.Models
+namespace CombatGame.Models
 {
     public class Team
     {
