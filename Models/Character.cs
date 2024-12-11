@@ -8,6 +8,7 @@ namespace CombatGame.Models
         public int Id { get; set; }
 
         [Required]
+#pragma warning disable CS8618
         public string Name { get; set; }
 
         [Range(1, 100)]

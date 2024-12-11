@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using CombatGame.Models;
 using CombatGame.Data;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Http;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CombatGame.Controllers
 {
@@ -16,42 +17,68 @@ namespace CombatGame.Controllers
             _context = context;
         }
 
-        public IActionResult Register()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Register(User user)
-        {
-            _context.Users.Add(user);
-            _context.SaveChanges();
-            return RedirectToAction("Login");
-        }
-
         public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Login(string username, string password)
+        public async Task<IActionResult> Login(string username, string password)
         {
             var user = _context.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
             if (user != null)
             {
-                HttpContext.Session.SetInt32("UserId", user.Id);
-                HttpContext.Session.SetString("Username", user.Username);
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, user.Username)
+                };
+
+                var claimsIdentity = new ClaimsIdentity(claims, "CookieAuth");
+                var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+
+                await HttpContext.SignInAsync("CookieAuth", claimsPrincipal);
+
                 return RedirectToAction("Index", "Home");
             }
+
             ModelState.AddModelError("", "Invalid username or password.");
             return View();
         }
 
-        public IActionResult Logout()
+        public IActionResult Register()
         {
-            HttpContext.Session.Clear();
-            return RedirectToAction("Index", "Home");
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+
+                var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.Name, user.Username)
+        };
+
+                var claimsIdentity = new ClaimsIdentity(claims, "CookieAuth");
+                var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+
+                await HttpContext.SignInAsync("CookieAuth", claimsPrincipal);
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(user);
+        }
+
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync("CookieAuth");
+            return RedirectToAction("Login");
         }
     }
 }

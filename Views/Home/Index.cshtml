@@ -1,4 +1,27 @@
 ﻿@{
     ViewData["Title"] = "Home";
 }
+
 <h1>Welcome to the Combat Game!</h1>
+<p>Choose an action to get started:</p>
+
+<ul>
+    <li>
+        <a href="@Url.Action("Index", "Teams")">View Teams</a>
+    </li>
+    <li>
+        <a href="@Url.Action("Create", "Teams")">Create a Team</a>
+    </li>
+    <li>
+        <a href="@Url.Action("Create", "Character")">Create a Character</a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "Battles")">Simulate a Battle</a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "Leaderboard")">View Leaderboard</a>
+    </li>
+    <li>
+        <a href="@Url.Action("Logout", "Users")">Logout</a>
+    </li>
+</ul>

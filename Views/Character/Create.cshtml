@@ -1,4 +1,4 @@
-﻿@model CombatGameWebApp.Models.Character
+﻿@model CombatGame.Models.Character
 
 @{
     ViewData["Title"] = "Create Character";
@@ -8,31 +8,31 @@
 
 <form asp-action="Create" method="post">
     <div>
-        <label asp-for="Name"></label>
+        <label asp-for="Name">Name: </label>
         <input asp-for="Name" />
         <span asp-validation-for="Name"></span>
     </div>
 
     <div>
-        <label asp-for="Strength"></label>
+        <label asp-for="Strength">Strength: </label>
         <input asp-for="Strength" type="number" />
         <span asp-validation-for="Strength"></span>
     </div>
 
     <div>
-        <label asp-for="Defense"></label>
+        <label asp-for="Defense">Defense: </label>
         <input asp-for="Defense" type="number" />
         <span asp-validation-for="Defense"></span>
     </div>
 
     <div>
-        <label asp-for="Speed"></label>
+        <label asp-for="Speed">Speed: </label>
         <input asp-for="Speed" type="number" />
         <span asp-validation-for="Speed"></span>
     </div>
 
     <div>
-        <label asp-for="Intelligence"></label>
+        <label asp-for="Intelligence">Intelligence: </label>
         <input asp-for="Intelligence" type="number" />
         <span asp-validation-for="Intelligence"></span>
     </div>

@@ -1,4 +1,4 @@
-﻿@model CombatGameWebApp.Models.User
+﻿@model CombatGame.Models.User
 
 @{
     ViewData["Title"] = "Register";
@@ -7,15 +7,24 @@
 <h2>Register</h2>
 
 <form asp-action="Register" method="post">
-    <div>
-        <label asp-for="Username"></label>
-        <input asp-for="Username" required />
+    <div class="form-group">
+        <label asp-for="Username" class="control-label">Enter your desired username</label>
+        <input asp-for="Username" class="form-control" placeholder="Username" />
+        <span asp-validation-for="Username" class="text-danger"></span>
     </div>
-
-    <div>
-        <label asp-for="Password"></label>
-        <input asp-for="Password" type="password" required />
+    <div class="form-group">
+        <label asp-for="Password" class="control-label">Enter a secure password</label>
+        <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
     </div>
-
-    <button type="submit">Register</button>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Register</button>
+    </div>
 </form>
+
+<div>
+    Already Have an Account?
+    <a href="@Url.Action("Login", "Users")">Login Here</a>
+</div>
+
+

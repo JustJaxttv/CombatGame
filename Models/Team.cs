@@ -6,12 +6,13 @@ namespace CombatGame.Models
 {
     public class Team
     {
-        public int Id { get; set; }
+        public int TeamId { get; set; }
 
         [Required]
-        public string TeamName { get; set; }
+        public string TeamName { get; set; } = string.Empty;
 
         public int UserId { get; set; }
+#pragma warning disable CS8618
         public User User { get; set; }
 
         public List<Character> Characters { get; set; } = new List<Character>();

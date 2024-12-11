@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CombatGameWebApp.Models.Team>
+﻿@model IEnumerable<CombatGame.Models.Team>
 
 @{
     ViewData["Title"] = "Select Teams for Battle";
@@ -12,7 +12,7 @@
         <select name="team1Id" required>
             @foreach (var team in Model)
             {
-                <option value="@team.Id">@team.TeamName</option>
+                <option value="@team.TeamId">@team.TeamName</option>
             }
         </select>
     </div>
@@ -22,7 +22,7 @@
         <select name="team2Id" required>
             @foreach (var team in Model)
             {
-                <option value="@team.Id">@team.TeamName</option>
+                <option value="@team.TeamId">@team.TeamName</option>
             }
         </select>
     </div>

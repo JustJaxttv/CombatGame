@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using CombatGameWebApp.Models;
+using CombatGame.Models;
 using Microsoft.EntityFrameworkCore;
 using CombatGame.Data;
 using System.Linq;
