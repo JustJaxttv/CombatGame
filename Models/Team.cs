@@ -12,8 +12,7 @@ namespace CombatGame.Models
         public string TeamName { get; set; } = string.Empty;
 
         public int UserId { get; set; }
-#pragma warning disable CS8618
-        public User User { get; set; }
+        public User? User { get; set; }
 
         public List<Character> Characters { get; set; } = new List<Character>();
 

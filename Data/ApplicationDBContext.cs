@@ -6,7 +6,6 @@ namespace CombatGame.Data
 {
     public class ApplicationDbContext : DbContext
     {
-#pragma warning disable CS8618
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
@@ -52,7 +51,7 @@ namespace CombatGame.Data
 
             // Seed Battles
             modelBuilder.Entity<Battle>().HasData(
-                new Battle { Id = 1, Team1Id = 1, Team2Id = 2, Winner = "Warriors", BattleDate = DateTime.Now }
+                new Battle { Id = 1, Team1Id = 1, Team2Id = 2, Winner = "Warriors", BattleDate = new DateTime(2024, 12, 11) }
             );
         }
     }
