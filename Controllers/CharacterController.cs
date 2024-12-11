@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 using CombatGame.Models;
 using CombatGame.Data;
 using System.Linq;
-using CombatGame.Models;
 
 namespace CombatGame.Controllers
 {

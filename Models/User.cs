@@ -1,4 +1,5 @@
-﻿namespace CombatGame.Models
+﻿using Microsoft.EntityFrameworkCore;
+namespace CombatGame.Models
 {
     public class User
     {

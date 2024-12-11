@@ -1,4 +1,5 @@
-﻿using CombatGame.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using CombatGame.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
