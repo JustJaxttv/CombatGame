@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CombatGameWebApp.Models.Team>
+
+@{
+    ViewData["Title"] = "Select Teams for Battle";
+}
+
+<h2>Select Teams for Battle</h2>
+
+<form asp-action="Simulate" method="post">
+    <div>
+        <label for="team1Id">Team 1:</label>
+        <select name="team1Id" required>
+            @foreach (var team in Model)
+            {
+                <option value="@team.Id">@team.TeamName</option>
+            }
+        </select>
+    </div>
+
+    <div>
+        <label for="team2Id">Team 2:</label>
+        <select name="team2Id" required>
+            @foreach (var team in Model)
+            {
+                <option value="@team.Id">@team.TeamName</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit">Simulate Battle</button>
+</form>

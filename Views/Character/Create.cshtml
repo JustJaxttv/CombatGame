@@ -1,0 +1,41 @@
+﻿@model CombatGameWebApp.Models.Character
+
+@{
+    ViewData["Title"] = "Create Character";
+}
+
+<h2>Create a New Character</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+
+    <div>
+        <label asp-for="Strength"></label>
+        <input asp-for="Strength" type="number" />
+        <span asp-validation-for="Strength"></span>
+    </div>
+
+    <div>
+        <label asp-for="Defense"></label>
+        <input asp-for="Defense" type="number" />
+        <span asp-validation-for="Defense"></span>
+    </div>
+
+    <div>
+        <label asp-for="Speed"></label>
+        <input asp-for="Speed" type="number" />
+        <span asp-validation-for="Speed"></span>
+    </div>
+
+    <div>
+        <label asp-for="Intelligence"></label>
+        <input asp-for="Intelligence" type="number" />
+        <span asp-validation-for="Intelligence"></span>
+    </div>
+
+    <button type="submit">Create Character</button>
+</form>

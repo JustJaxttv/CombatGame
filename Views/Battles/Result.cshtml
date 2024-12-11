@@ -1,0 +1,12 @@
+﻿@model CombatGameWebApp.Models.Battle
+
+@{
+    ViewData["Title"] = "Battle Result";
+}
+
+<h2>Battle Result</h2>
+
+<p>The winner is: <strong>@Model.Winner</strong></p>
+<p>Battle Date: @Model.BattleDate</p>
+
+<a href="/Battles">Simulate Another Battle</a>
